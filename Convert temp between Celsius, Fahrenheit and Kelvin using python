@@ -1,0 +1,15 @@
+def convert(temp, unit):
+  c = (temp - 32) * 5/9 if unit == 'F' else temp - 273.15 if unit == 'K' else temp
+  f = c * 9/5 + 32
+  k = c + 273.15
+  return f, k
+
+while True:
+  try:
+    temp = float(input("Temperature: "))
+    unit = input("Unit (C/F/K): ").upper()
+    f, k = convert(temp, unit)
+    print(f"{temp} {unit} is {f:.2f} F and {k:.2f} K")
+    break
+  except ValueError:
+    print("Invalid input.")
